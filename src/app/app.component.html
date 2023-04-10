@@ -1,7 +1,7 @@
 <div class="container" *ngIf="weatherdata">
   <div class="upper-data">
-    <img src="../assets/cold-weather.jpg" alt="" *ngIf="weatherdata.main.temp< 15">
-    <img src="../assets/hot-weather.jpg" alt=""*ngIf="weatherdata.main.temp > 15">
+    <img src="../assets/cold-weather.jpg" alt="" *ngIf="weatherdata.main.temp <= 45">
+    <img src="../assets/hot-weather.jpg" alt=""*ngIf="weatherdata.main.temp > 45">
     <div class="weather-data">
       <div class="location">
         {{weatherdata.name}}
