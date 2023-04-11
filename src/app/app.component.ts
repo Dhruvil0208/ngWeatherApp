@@ -11,15 +11,23 @@ import { map } from 'rxjs';
 export class AppComponent implements OnInit{
 
   constructor(private weatherService : WeatherService){}
-
+  cityName: string = 'Ahmedabad';
   weatherdata?: WeatherData;
 
   ngOnInit(){
-    this.weatherService.getWeatherData('London')
+    this.getWeatherData(this.cityName);
+    this.cityName = '';
+  }
+
+  private getWeatherData(city: string){
+    this.weatherService.getWeatherData(city)
     .subscribe(response => {
       this.weatherdata = response;
     });
   }
-
+  onSubmit(){
+    this.getWeatherData(this.cityName);
+    this.cityName = '';
+  }
   title = 'Weather-App';
 }
